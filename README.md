@@ -13,4 +13,5 @@ python convert-to-trec.py -i <path to signalmedia-1m.jsonl> -o <path to your out
 ```
 
 ## Indexing the dataset with Terrier
-We recommend using the terrier.properties file included in this repository to index the dataset with Terrier
+We recommend using the terrier.properties file included in this repository to index the dataset with Terrier.
+In your Terrier etc folder, add a text file "signal.spec" with one line containing the path to the file you created above (The TREC formatted dataset)
