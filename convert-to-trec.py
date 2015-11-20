@@ -36,13 +36,13 @@ def main(argv):
             news_article=json.loads(line)
                 #pprint(news_article)
             trecdoc = "<DOC>\n"
-            trecdoc+= "<DOCNO>"+news_article["id"]+"</DOCNO>\n"
-            trecdoc+= "<SOURCE>"+news_article["source"]+"</SOURCE>\n"
-            trecdoc+= "<MEIDATYPE>"+news_article["media-type"]+"</MEDIATYPE>\n"
-            trecdoc+= "<PUBLISHED>"+news_article["published"]+"</PUBLISHED>\n"
-            trecdoc+= news_article["content"]+"\n"
-            trecdoc+= "</DOC>\n"
-            outfile.write(trecdoc.encode('utf-8'))
+            trecdoc += "<DOCNO>{}</DOCNO>\n".format(news_article["id"].encode('utf-8'))
+            trecdoc += "<SOURCE>{}</SOURCE>\n".format(news_article["source"].encode('utf-8'))
+            trecdoc += "<MEIDATYPE>{}</MEDIATYPE>\n".format(news_article["media-type"].encode('utf-8'))
+            trecdoc += "<PUBLISHED>{}</PUBLISHED>\n".format(news_article["published"].encode('utf-8'))
+            trecdoc += "{}\n".format(news_article["content"].encode('utf-8'))
+            trecdoc += "</DOC>\n"
+            outfile.write(trecdoc)
             outfile.flush()
         outfile.close()
 
