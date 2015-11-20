@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 import json
 import sys
 import getopt
@@ -30,20 +31,20 @@ def main(argv):
     if not outputfile:
         usage()
         sys.exit()
-    outfile = open(outputfile, 'w+')
-    with open(inputfile) as f:
-        for line in f:
-            news_article=json.loads(line)
-            trecdoc = "<DOC>\n"
-            trecdoc += "<DOCNO>{}</DOCNO>\n".format(news_article["id"].encode('utf-8'))
-            trecdoc += "<SOURCE>{}</SOURCE>\n".format(news_article["source"].encode('utf-8'))
-            trecdoc += "<MEDIATYPE>{}</MEDIATYPE>\n".format(news_article["media-type"].encode('utf-8'))
-            trecdoc += "<PUBLISHED>{}</PUBLISHED>\n".format(news_article["published"].encode('utf-8'))
-            trecdoc += "{}\n".format(news_article["content"].encode('utf-8'))
-            trecdoc += "</DOC>\n"
-            outfile.write(trecdoc)
-            outfile.flush()
-        outfile.close()
+    with open(inputfile) as fin, open(outputfile, 'w') as fout:
+        for line in fin:
+            news_article = json.loads(line)
+            trecdoc = u"<DOC>\n"
+            trecdoc += u"<DOCNO>{}</DOCNO>\n".format(news_article["id"])
+            trecdoc += u"<SOURCE>{}</SOURCE>\n".format(news_article["source"])
+            trecdoc += u"<MEDIATYPE>{}</MEDIATYPE>\n".format(news_article["media-type"])
+            trecdoc += u"<PUBLISHED>{}</PUBLISHED>\n".format(news_article["published"])
+            trecdoc += u"{}\n".format(news_article["content"])
+            trecdoc += u"</DOC>\n"
+            try: # py27
+                fout.write(trecdoc.encode('utf-8'))
+            except TypeError: # py34
+                fout.write(trecdoc)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
