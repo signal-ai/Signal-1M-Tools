@@ -1,7 +1,7 @@
 # Signal-1M-Tools
 
 ## Signal-1M-Convert-To-TREC
-A script to convert the Signal Media One-Million News Articles Dataset to TREC format.
+A script to convert the [Signal Media One-Million News Articles Dataset](http://research.signalmedia.co/newsir16/signal-dataset.html)  to TREC format.
 The TREC format allows researchers to index the dataset using popular Information Retrieval platforms such as http://terrier.org
 
 ###Running the script
