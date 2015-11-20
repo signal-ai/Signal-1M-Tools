@@ -1,6 +1,6 @@
 import json
-from pprint import pprint
-import sys, getopt
+import sys
+import getopt
 
 
 def usage():
@@ -34,11 +34,10 @@ def main(argv):
     with open(inputfile) as f:
         for line in f:
             news_article=json.loads(line)
-                #pprint(news_article)
             trecdoc = "<DOC>\n"
             trecdoc += "<DOCNO>{}</DOCNO>\n".format(news_article["id"].encode('utf-8'))
             trecdoc += "<SOURCE>{}</SOURCE>\n".format(news_article["source"].encode('utf-8'))
-            trecdoc += "<MEIDATYPE>{}</MEDIATYPE>\n".format(news_article["media-type"].encode('utf-8'))
+            trecdoc += "<MEDIATYPE>{}</MEDIATYPE>\n".format(news_article["media-type"].encode('utf-8'))
             trecdoc += "<PUBLISHED>{}</PUBLISHED>\n".format(news_article["published"].encode('utf-8'))
             trecdoc += "{}\n".format(news_article["content"].encode('utf-8'))
             trecdoc += "</DOC>\n"
