@@ -67,7 +67,7 @@ The TREC format allows researchers to index the dataset using popular Informatio
 After obtaining the dataset through this form http://goo.gl/forms/5i4KldoWIX, you can extract the JSONL file from the the downloaded Gzip file
 Then you run the script like this
 
-```python
+```bash
 python convert-to-trec.py -i <path to signalmedia-1m.jsonl> -o <path to your outputfile>
 ```
 
