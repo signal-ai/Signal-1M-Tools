@@ -57,6 +57,19 @@ Then run:
 python index_articles.py http://localhost:9200/articles ./million.jsonl
 ```
 
+#### Term frequencies
+
+The term and document frequencies are also available using these links. These values were calculated after routine tokenisation and stop-word removal.
+
+* [Document frequencies](http://research.signalmedia.co/store/merged-df.edn)
+
+* [Inverse document frequencies](http://research.signalmedia.co/store/merged-idf.edn)
+
+* [Term frequencies](http://research.signalmedia.co/store/merged-df-totalf.edn)
+
+These files are in [edn format](https://github.com/edn-format/edn).
+
+
 ### TREC
 
 #### Signal-1M-Convert-To-TREC
