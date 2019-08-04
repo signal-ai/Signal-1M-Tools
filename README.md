@@ -54,7 +54,7 @@ pip install requests
 Then run:
 
 ```bash
-python index_articles.py http://localhost:9200/articles ./million.jsonl
+python index_articles.py http://localhost:9200 ./million.jsonl
 ```
 
 #### Term frequencies
